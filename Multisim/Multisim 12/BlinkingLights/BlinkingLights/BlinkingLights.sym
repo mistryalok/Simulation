@@ -1,0 +1,67 @@
+__Lrdata 24 FFFFFFDF DATA
+__Hrbss 24 0 DATA
+__Lrbss 20 0 DATA
+?a_delay 20 0 DATA
+__Birdata 3 FFFFFFDF DATA
+__Hirdata 24 FFFFFFDF DATA
+__Lirdata 24 FFFFFFDF DATA
+powerup 96 0 CODE
+__Htext 24 0
+__Ltext 24 0
+__Hcode 24 0
+__Lcode 24 0
+__Hdata 100 0 CODE
+__Hconst 100 0 CODE
+__Ldata 100 0 CODE
+__Lconst 100 0 CODE
+__Bbss 24 0 XDATA
+__Hbss 24 0 XDATA
+__Hstrings 100 0 CODE
+__Lbss 24 0 XDATA
+__Lstrings 100 0 CODE
+_delay 1F 0 CODE
+__S0 100 0
+start1 82 0 CODE
+__Hnvram 24 0 XDATA
+small_model 1 0
+__Lnvram 24 0 XDATA
+__Hheap 24 0 XDATA
+__Lheap 24 0 XDATA
+_main 3 0 CODE
+_exit 93 0 CODE
+start 0 0 CODE
+intlevel0 0 0
+__Brbit 20 20 BITSEG
+__Hrbit 0 20 BITSEG
+intlevel1 0 0
+__Hvectors 3 0 CODE
+__Lrbit 0 20 BITSEG
+__Lvectors 0 0 CODE
+__Bidata 24 0 DATA
+__Hidata 24 0 DATA
+__Lidata 24 0 DATA
+stack_internal 1 0
+__Brdata 3 FFFFFFDF DATA
+__Hrdata 24 FFFFFFDF DATA
+%segments
+vectors 0 98 CODE
+rbit 0 3 BITSEG
+%locals
+D:\alok\EC\Multisim\BLINKI~1\BLINKI~1\LEDblink_0.obj
+D:\alok\EC\Multisim\BLINKI~1\BLINKI~1\LEDblink.C
+5 3 0 CODE
+6 5 0 CODE
+7 8 0 CODE
+10 A 0 CODE
+11 D 0 CODE
+12 F 0 CODE
+13 12 0 CODE
+14 15 0 CODE
+15 17 0 CODE
+16 1A 0 CODE
+18 1C 0 CODE
+22 1F 0 CODE
+24 21 0 CODE
+26 38 0 CODE
+24 67 0 CODE
+30 7F 0 CODE

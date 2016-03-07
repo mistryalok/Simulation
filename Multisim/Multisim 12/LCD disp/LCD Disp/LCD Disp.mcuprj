@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<MCUProject Schema="62" Class="CMCUProject" Path="" PathAbs="" ProjectType="0">
+<ProjectFolders/>
+<ProjectFiles/>
+<BuildSettings>
+<MCUProjectBuildSettings Class="CMCUProjectBuildSettings" ToolGroupType="3" IntermediatePath="&amp;ASC.\" IntermediatePathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" OutputPath="&amp;ASC.\" OutputPathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" TargetFileType="6" SimPath="&amp;ASC.\" SimPathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" SimFile="&amp;ASCLCD Disp.hex" CodeLoadType="0">
+<Assembler>
+<MCUToolSettings Class="CMCUToolSettings" ToolType="0" IntermediatePath="&amp;ASC.\" IntermediatePathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" OutputPath="&amp;ASC.\" OutputPathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" TargetType="6" IncludeOptions="&amp;ASC$MOD51" PreFilenameOptions="" PostFilenameOptions="">
+<MCULibraries/>
+</MCUToolSettings>
+</Assembler>
+<Compiler>
+<MCUToolSettings Class="CMCUToolSettings" ToolType="-1" IntermediatePath="&amp;ASC.\" IntermediatePathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" OutputPath="&amp;ASC.\" OutputPathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" TargetType="-1" IncludeOptions="" PreFilenameOptions="&amp;ASC--ASMLIST -G -M -N255 -P --OPT=none --CHIP=8051AH  --ERRFORMAT=&quot;error; file %f; line %l; column %c; %s&quot;  --WARNFORMAT=&quot;warning; file %f; line %l; column %c; %s&quot;  --MSGFORMAT=&quot;message; file %f; line %l; column %c; %s&quot; " PostFilenameOptions="">
+<MCULibraries/>
+</MCUToolSettings>
+</Compiler>
+<Library>
+<MCUToolSettings Class="CMCUToolSettings" ToolType="6" IntermediatePath="&amp;ASC.\" IntermediatePathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" OutputPath="&amp;ASC.\" OutputPathAbs="&amp;ASCD:\alok\simulation\Multisim\Multisim 12\LCD disp\LCD Disp\" TargetType="7" IncludeOptions="" PreFilenameOptions="&amp;ASC r &quot;LCD Disp.lib&quot;" PostFilenameOptions="">
+<MCULibraries/>
+</MCUToolSettings>
+</Library>
+</MCUProjectBuildSettings>
+</BuildSettings>
+</MCUProject>

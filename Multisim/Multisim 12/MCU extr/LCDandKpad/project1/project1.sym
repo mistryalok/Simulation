@@ -1,0 +1,50 @@
+__Lrdata 20 FFFFFFE3 DATA
+__Hrbss 20 0 DATA
+__Lrbss 20 0 DATA
+__Birdata 3 FFFFFFE3 DATA
+__Hirdata 20 FFFFFFE3 DATA
+__Lirdata 20 FFFFFFE3 DATA
+powerup 14 0 CODE
+__Htext 20 0
+__Ltext 20 0
+__Hcode 20 0
+__Lcode 20 0
+__Hdata 100 0 CODE
+__Hconst 100 0 CODE
+__Ldata 100 0 CODE
+__Lconst 100 0 CODE
+__Bbss 20 0 XDATA
+__Hbss 20 0 XDATA
+__Hstrings 100 0 CODE
+__Lbss 20 0 XDATA
+__Lstrings 100 0 CODE
+__S0 100 0
+start1 3 0 CODE
+__Hnvram 20 0 XDATA
+small_model 1 0
+__Lnvram 20 0 XDATA
+__Hheap 20 0 XDATA
+__Lheap 20 0 XDATA
+_main F 0 CODE
+_exit C 0 CODE
+start 0 0 CODE
+intlevel0 0 0
+__Brbit 20 20 BITSEG
+__Hrbit 0 20 BITSEG
+intlevel1 0 0
+__Hvectors 3 0 CODE
+__Lrbit 0 20 BITSEG
+__Lvectors 0 0 CODE
+__Bidata 20 0 DATA
+__Hidata 20 0 DATA
+__Lidata 20 0 DATA
+stack_internal 1 0
+__Brdata 3 FFFFFFE3 DATA
+__Hrdata 20 FFFFFFE3 DATA
+%segments
+vectors 0 16 CODE
+%locals
+D:\alok\EC\Multisim\MCUEXT~1\LCDAND~1\project1\main_0.obj
+D:\alok\EC\Multisim\MCUEXT~1\LCDAND~1\project1\main.c
+2 F 0 CODE
+4 11 0 CODE

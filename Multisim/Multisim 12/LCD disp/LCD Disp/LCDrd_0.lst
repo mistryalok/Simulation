@@ -1,0 +1,615 @@
+
+
+HI-TECH Software 8051 Macro Assembler V9.60                                Page 1
+                                                       Sun Jun 16 11:18:42 2013
+
+     1                           	psect	idata,class=DATA,space=1,limit=080h
+     2                           	psect	irdata,class=DATA,limit=080h
+     3                           	global	_main
+     4                           	signat	_main,88
+     5                           	global	stack_internal
+     6                           	psect	text,class=CODE
+     7                           	psect	text
+     8                           	file	"D:\alok\EC\Multisim\LCDDIS~1\LCDDIS~1\LCD
+                                 rd.c"
+     9                           	line	25
+    10  00003                     _main:
+    11  00003  80 23              	j	f1411
+    12  00005                     f1410:
+    13                           ;LCDrd.c: 24: void main()
+    14                           
+    15                           ;LCDrd.c: 25: {
+    16                           
+    17                           	psect	data,class=CODE
+    18                           	psect	data
+    19  00100                     F312:
+    20  00100  48                 	db	(72)
+    21  00101  45                 	db	(69)
+    22  00102  4C                 	db	(76)
+    23  00103  4C                 	db	(76)
+    24  00104  4F                 	db	(79)
+    25  00105  20                 	db	(32)
+    26  00106  57                 	db	(87)
+    27  00107  4F                 	db	(79)
+    28  00108  52                 	db	(82)
+    29  00109  4C                 	db	(76)
+    30  0010A  44                 	db	(68)
+    31  0010B  00                 	db	(0)
+    32                           ;	var   _msg assigned to ?a_main+0
+    33                           ;LCDrd.c: 27: unsigned char msg[]={"HELLO WORLD"
+                                 };
+    34                           
+    35                           	psect	text
+    36                           	line	27
+    37  00005  78 01              	mov	r0,#high (F312)
+    38  00007  79 00              	mov	r1,#low (F312)
+    39  00009  7A 00              	mov	r2,#high (?a_main+0)
+    40  0000B  7B 20              	mov	r3,#low (?a_main+0)
+    41  0000D  7D 0C              	mov	r5,#low 12
+    42  0000F  7C 00              	mov	r4,#high 12
+    43                           	global	str_copy
+    44  00011  12 0195            	lcall	str_copy
+    45                           ;LCDrd.c: 28: LCD_init();
+    46                           
+    47                           	global	_LCD_init
+    48                           	signat	_LCD_init,88
+    49                           	FNCALL	_main,_LCD_init
+    50                           	line	28
+    51  00014  12 002A            	lcall	_LCD_init
+    52                           ;LCDrd.c: 29: LCD_command(0x80);
+    53                           
+    54                           	global	_LCD_command
+    55                           	signat	_LCD_command,4216
+    56                           	FNCALL	_main,_LCD_command
+    57                           	line	29
+    58  00017  7D 80              	mov	r5,#128
+    59  00019  12 007F            	lcall	_LCD_command
+    60                           
+    61                           ;LCDrd.c: 30: again: LCD_sendstring(msg);
+    62                           
+    63                           	line	30
+    64  0001C                     l5:
+    65                           	global	_LCD_sendstring
+    66                           	signat	_LCD_sendstring,4216
+    67                           	FNCALL	_main,_LCD_sendstring
+    68  0001C  7C 00              	mov	r4,#high (?a_main+0)
+    69  0001E  7D 20              	mov	r5,#low (?a_main+0)
+    70  00020  12 00A3            	lcall	_LCD_sendstring
+    71                           
+    72                           ;LCDrd.c: 31: goto again;
+    73                           
+    74                           	line	31
+    75  00023  80 F7              	jmp	l5
+    76                           ;LCDrd.c: 32: while(1);
+    77                           
+    78                           	line	32
+    79  00025                     l7:
+    80  00025                     l6:
+    81  00025  80 FE              	jmp	l7
+    82  00027                     l8:
+    83                           ;LCDrd.c: 34: }
+    84                           
+    85                           	line	34
+    86  00027                     l4:
+    87  00027  22                 	ret
+    88  00028                     f1411:
+    89  00028  80 DB              	j	f1410
+    90                           	FNSIZE	_main,12,0
+    91                           	global	?a_main
+    92  0000                     f1412	equ	0
+    93                           	line	38
+    94  0002A                     _LCD_init:
+    95  0002A  80 37              	j	f1461
+    96  0002C                     f1460:
+    97                           ;LCDrd.c: 37: void LCD_init()
+    98                           
+    99                           ;LCDrd.c: 38: {
+   100                           
+   101                           ;LCDrd.c: 39: P2 = 0x38;
+   102                           
+   103                           	line	39
+   104  0002C  75 A0 38           	mov	0A0h,#56
+   105                           ;LCDrd.c: 40: P10 = 0;
+   106                           
+   107                           	line	40
+   108  0002F  C2 90              	clr	p1.0
+   109                           ;LCDrd.c: 41: P11 = 0;
+   110                           
+   111                           	line	41
+   112  00031  C2 91              	clr	p1.1
+   113                           ;LCDrd.c: 42: P12 = 1;
+   114                           
+   115                           	line	42
+   116  00033  D2 92              	setb	p1.2
+   117                           ;LCDrd.c: 43: P12 = 0;
+   118                           
+   119                           	line	43
+   120  00035  C2 92              	clr	p1.2
+   121                           ;LCDrd.c: 44: LCD_busy();
+   122                           
+   123                           	global	_LCD_busy
+   124                           	signat	_LCD_busy,88
+   125                           	FNCALL	_LCD_init,_LCD_busy
+   126                           	line	44
+   127  00037  12 0065            	lcall	_LCD_busy
+   128                           ;LCDrd.c: 47: P2 = 0x0D;
+   129                           
+   130                           	line	47
+   131  0003A  75 A0 0D           	mov	0A0h,#13
+   132                           ;LCDrd.c: 48: P10 = 0;
+   133                           
+   134                           	line	48
+   135  0003D  C2 90              	clr	p1.0
+   136                           ;LCDrd.c: 49: P11 = 0;
+   137                           
+   138                           	line	49
+   139  0003F  C2 91              	clr	p1.1
+   140                           ;LCDrd.c: 50: P12 = 1;
+   141                           
+   142                           	line	50
+   143  00041  D2 92              	setb	p1.2
+   144                           ;LCDrd.c: 51: P12 = 0;
+   145                           
+   146                           	line	51
+   147  00043  C2 92              	clr	p1.2
+   148                           ;LCDrd.c: 52: LCD_busy();
+   149                           
+   150                           	line	52
+   151  00045  12 0065            	lcall	_LCD_busy
+   152                           ;LCDrd.c: 55: P2 = 0x01;
+   153                           
+   154                           	line	55
+   155  00048  75 A0 01           	mov	0A0h,#1
+   156                           ;LCDrd.c: 56: P10 = 0;
+   157                           
+   158                           	line	56
+   159  0004B  C2 90              	clr	p1.0
+   160                           ;LCDrd.c: 57: P11 = 0;
+   161                           
+   162                           	line	57
+   163  0004D  C2 91              	clr	p1.1
+   164                           ;LCDrd.c: 58: P12 = 1;
+   165                           
+   166                           	line	58
+   167  0004F  D2 92              	setb	p1.2
+   168                           ;LCDrd.c: 59: P12 = 0;
+   169                           
+   170                           	line	59
+   171  00051  C2 92              	clr	p1.2
+   172                           ;LCDrd.c: 60: LCD_busy();
+   173                           
+   174                           	line	60
+   175  00053  12 0065            	lcall	_LCD_busy
+   176                           ;LCDrd.c: 62: P2 = 0x06;
+   177                           
+   178                           	line	62
+   179  00056  75 A0 06           	mov	0A0h,#6
+   180                           ;LCDrd.c: 63: P10 = 0;
+   181                           
+   182                           	line	63
+   183  00059  C2 90              	clr	p1.0
+   184                           ;LCDrd.c: 64: P11 = 0;
+   185                           
+   186                           	line	64
+   187  0005B  C2 91              	clr	p1.1
+   188                           ;LCDrd.c: 65: P12 = 1;
+   189                           
+   190                           	line	65
+   191  0005D  D2 92              	setb	p1.2
+   192                           ;LCDrd.c: 66: LCD_busy();
+   193                           
+   194                           	line	66
+   195  0005F  12 0065            	lcall	_LCD_busy
+   196                           ;LCDrd.c: 68: }
+   197                           
+   198                           	line	68
+   199  00062                     l9:
+   200  00062  22                 	ret
+   201  00063                     f1461:
+   202  00063  80 C7              	j	f1460
+   203  0000                     f1462	equ	0
+   204                           	line	71
+   205  00065                     _LCD_busy:
+   206  00065  80 16              	j	f1481
+   207  00067                     f1480:
+   208                           ;LCDrd.c: 70: void LCD_busy()
+   209                           
+   210                           ;LCDrd.c: 71: {
+   211                           
+   212                           ;LCDrd.c: 72: P27 = 1;
+   213                           
+   214                           	line	72
+   215  00067  D2 A7              	setb	p2.7
+   216                           ;LCDrd.c: 73: P12 = 1;
+   217                           
+   218                           	line	73
+   219  00069  D2 92              	setb	p1.2
+   220                           ;LCDrd.c: 74: P10 = 0;
+   221                           
+   222                           	line	74
+   223  0006B  C2 90              	clr	p1.0
+   224                           ;LCDrd.c: 75: P11 = 1;
+   225                           
+   226                           	line	75
+   227  0006D  D2 91              	setb	p1.1
+   228                           ;LCDrd.c: 76: while(P27)
+   229                           
+   230                           	line	76
+   231  0006F  80 04              	jmp	l11
+   232  00071                     l12:
+   233                           ;LCDrd.c: 77: {
+   234                           
+   235                           ;LCDrd.c: 78: P12 = 0;
+   236                           
+   237                           	line	78
+   238  00071  C2 92              	clr	p1.2
+   239                           ;LCDrd.c: 79: P12 = 1;
+   240                           
+   241                           	line	79
+   242  00073  D2 92              	setb	p1.2
+   243                           	line	80
+   244  00075                     l11:
+   245                           	line	76
+   246  00075  20 A7 02           	bb	p2.7, u11
+   247  00078  80 02              	jmp	u10
+   248  0007A                     u11:
+   249  0007A  80 F5              	jmp	l12
+   250  0007C                     u10:
+   251  0007C                     l13:
+   252                           ;LCDrd.c: 80: }
+   253                           
+   254                           ;LCDrd.c: 87: }
+   255                           
+   256                           	line	87
+   257  0007C                     l10:
+   258  0007C  22                 	ret
+   259  0007D                     f1481:
+   260  0007D  80 E8              	j	f1480
+   261  0000                     f1482	equ	0
+   262                           ;	param _var assigned to r5 on entry
+   263                           	line	90
+   264  0007F                     _LCD_command:
+   265  0007F  80 0E              	j	f1491
+   266  00081                     f1490:
+   267                           ;LCDrd.c: 89: void LCD_command(unsigned char var
+                                 )
+   268                           
+   269                           ;LCDrd.c: 90: {
+   270                           
+   271                           ;LCDrd.c: 91: P2 = var;
+   272                           
+   273                           	line	91
+   274  00081  8D A0              	mov	0A0h,r5
+   275                           ;LCDrd.c: 92: P10 = 0;
+   276                           
+   277                           	line	92
+   278  00083  C2 90              	clr	p1.0
+   279                           ;LCDrd.c: 93: P11 = 0;
+   280                           
+   281                           	line	93
+   282  00085  C2 91              	clr	p1.1
+   283                           ;LCDrd.c: 94: P12 = 1;
+   284                           
+   285                           	line	94
+   286  00087  D2 92              	setb	p1.2
+   287                           ;LCDrd.c: 95: P12 = 0;
+   288                           
+   289                           	line	95
+   290  00089  C2 92              	clr	p1.2
+   291                           ;LCDrd.c: 96: LCD_busy();
+   292                           
+   293                           	FNCALL	_LCD_command,_LCD_busy
+   294                           	line	96
+   295  0008B  12 0065            	lcall	_LCD_busy
+   296                           ;LCDrd.c: 97: }
+   297                           
+   298                           	line	97
+   299  0008E                     l14:
+   300  0008E  22                 	ret
+   301  0008F                     f1491:
+   302  0008F  80 F0              	j	f1490
+   303  0000                     f1492	equ	0
+   304                           ;	param _var assigned to r5 on entry
+   305                           	global	_LCD_senddata
+   306                           	signat	_LCD_senddata,4216
+   307                           	line	105
+   308  00091                     _LCD_senddata:
+   309  00091  80 0E              	j	f1501
+   310  00093                     f1500:
+   311                           ;LCDrd.c: 104: void LCD_senddata(unsigned char v
+                                 ar)
+   312                           
+   313                           ;LCDrd.c: 105: {
+   314                           
+   315                           ;LCDrd.c: 106: P2 = var;
+   316                           
+   317                           	line	106
+   318  00093  8D A0              	mov	0A0h,r5
+   319                           ;LCDrd.c: 107: P10 = 1;
+   320                           
+   321                           	line	107
+   322  00095  D2 90              	setb	p1.0
+   323                           ;LCDrd.c: 108: P11 = 0;
+   324                           
+   325                           	line	108
+   326  00097  C2 91              	clr	p1.1
+   327                           ;LCDrd.c: 109: P12 = 1;
+   328                           
+   329                           	line	109
+   330  00099  D2 92              	setb	p1.2
+   331                           ;LCDrd.c: 110: P12 = 0;
+   332                           
+   333                           	line	110
+   334  0009B  C2 92              	clr	p1.2
+   335                           ;LCDrd.c: 111: LCD_busy();
+   336                           
+   337                           	FNCALL	_LCD_senddata,_LCD_busy
+   338                           	line	111
+   339  0009D  12 0065            	lcall	_LCD_busy
+   340                           ;LCDrd.c: 112: }
+   341                           
+   342                           	line	112
+   343  000A0                     l15:
+   344  000A0  22                 	ret
+   345  000A1                     f1501:
+   346  000A1  80 F0              	j	f1500
+   347  0000                     f1502	equ	0
+   348                           ;	param _var assigned to r4/r5 on entry
+   349                           	line	121
+   350  000A3                     _LCD_sendstring:
+   351  000A3  80 25              	j	f1511
+   352  000A5                     f1510:
+   353                           ;LCDrd.c: 120: void LCD_sendstring(unsigned char
+                                  *var)
+   354                           
+   355                           ;LCDrd.c: 121: {
+   356                           
+   357                           ;LCDrd.c: 122: while(*var)
+   358                           
+   359                           ;	var   _var assigned to ?a_LCD_sendstring+0
+   360                           ;_var stored from WR2
+   361  000A5  8C 2C              	mov	?a_LCD_sendstring+0,r4
+   362  000A7  8D 2D              	mov	?a_LCD_sendstring+0+1,r5
+   363                           	line	122
+   364  000A9  80 13              	jmp	l17
+   365  000AB                     l18:
+   366                           ;LCDrd.c: 123: LCD_senddata(*var++);
+   367                           
+   368                           	FNCALL	_LCD_sendstring,_LCD_senddata
+   369                           	line	123
+   370  000AB  85 2C  83          	mov	dph,?a_LCD_sendstring+0
+   371  000AE  85 2D  82          	mov	dpl,?a_LCD_sendstring+0+1
+   372                           	global	ldc_r5
+   373  000B1  12 0158            	call	ldc_r5
+   374  000B4  A3                 	inc	dptr
+   375  000B5  85 83 2C           	mov	?a_LCD_sendstring+0,dph
+   376  000B8  85 82 2D           	mov	?a_LCD_sendstring+0+1,dpl
+   377  000BB  12 0091            	lcall	_LCD_senddata
+   378                           
+   379  000BE                     l17:
+   380                           	line	122
+   381  000BE  85 2C  83          	mov	dph,?a_LCD_sendstring+0
+   382  000C1  85 2D  82          	mov	dpl,?a_LCD_sendstring+0+1
+   383                           	global	ldc_byte
+   384  000C4  12 010C            	call	ldc_byte
+   385  000C7  70 E2              	bnz	l18
+   386  000C9                     l19:
+   387                           ;LCDrd.c: 124: }
+   388                           
+   389                           	line	124
+   390  000C9                     l16:
+   391  000C9  22                 	ret
+   392  000CA                     f1511:
+   393  000CA  80 D9              	j	f1510
+   394                           	FNSIZE	_LCD_sendstring,2,0
+   395                           	global	?a_LCD_sendstring
+   396  0000                     f1512	equ	0
+   397  0000                     _A10	equ	162
+   398  0000                     _A11	equ	163
+   399  0000                     _A12	equ	164
+   400  0000                     _A13	equ	165
+   401  0000                     _A14	equ	166
+   402  0000                     _A15	equ	167
+   403  0000                     _A8	equ	160
+   404  0000                     _A9	equ	161
+   405  0000                     _AC	equ	214
+   406  0000                     _ACC0	equ	224
+   407  0000                     _ACC1	equ	225
+   408  0000                     _ACC2	equ	226
+   409  0000                     _ACC3	equ	227
+   410  0000                     _ACC4	equ	228
+   411  0000                     _ACC5	equ	229
+   412  0000                     _ACC6	equ	230
+   413  0000                     _ACC7	equ	231
+   414  0000                     _AD0	equ	128
+   415  0000                     _AD1	equ	129
+   416  0000                     _AD2	equ	130
+   417  0000                     _AD3	equ	131
+   418  0000                     _AD4	equ	132
+   419  0000                     _AD5	equ	133
+   420  0000                     _AD6	equ	134
+   421  0000                     _AD7	equ	135
+   422  0000                     _B0	equ	240
+   423  0000                     _B1	equ	241
+   424  0000                     _B2	equ	242
+   425  0000                     _B3	equ	243
+   426  0000                     _B4	equ	244
+   427  0000                     _B5	equ	245
+   428  0000                     _B6	equ	246
+   429  0000                     _B7	equ	247
+   430  0000                     _CY	equ	215
+   431  0000                     _EA	equ	175
+   432  0000                     _ES	equ	172
+   433  0000                     _ET0	equ	169
+   434  0000                     _ET1	equ	171
+   435  0000                     _EX0	equ	168
+   436  0000                     _EX1	equ	170
+   437  0000                     _F0	equ	213
+   438  0000                     _IE0	equ	137
+   439  0000                     _IE1	equ	139
+   440  0000                     _INT0	equ	178
+   441  0000                     _INT1	equ	179
+   442  0000                     _IT0	equ	136
+   443  0000                     _IT1	equ	138
+   444  0000                     _OV	equ	210
+   445  0000                     _P	equ	208
+   446  0000                     _P00	equ	128
+   447  0000                     _P01	equ	129
+   448  0000                     _P02	equ	130
+   449  0000                     _P03	equ	131
+   450  0000                     _P04	equ	132
+   451  0000                     _P05	equ	133
+   452  0000                     _P06	equ	134
+   453  0000                     _P07	equ	135
+   454  0000                     _P10	equ	144
+   455  0000                     _P11	equ	145
+   456  0000                     _P12	equ	146
+   457  0000                     _P13	equ	147
+   458  0000                     _P14	equ	148
+   459  0000                     _P15	equ	149
+   460  0000                     _P16	equ	150
+   461  0000                     _P17	equ	151
+   462  0000                     _P20	equ	160
+   463  0000                     _P21	equ	161
+   464  0000                     _P22	equ	162
+   465  0000                     _P23	equ	163
+   466  0000                     _P24	equ	164
+   467  0000                     _P25	equ	165
+   468  0000                     _P26	equ	166
+   469  0000                     _P27	equ	167
+   470  0000                     _P30	equ	176
+   471  0000                     _P31	equ	177
+   472  0000                     _P32	equ	178
+   473  0000                     _P33	equ	179
+   474  0000                     _P34	equ	180
+   475  0000                     _P35	equ	181
+   476  0000                     _P36	equ	182
+   477  0000                     _P37	equ	183
+   478  0000                     _PS	equ	188
+   479  0000                     _PT0	equ	185
+   480  0000                     _PT1	equ	187
+   481  0000                     _PX0	equ	184
+   482  0000                     _PX1	equ	186
+   483  0000                     _RB8	equ	154
+   484  0000                     _RD	equ	183
+   485  0000                     _REN	equ	156
+   486  0000                     _RI	equ	152
+   487  0000                     _RS0	equ	211
+   488  0000                     _RS1	equ	212
+   489  0000                     _RXD	equ	176
+   490  0000                     _SM0	equ	159
+   491  0000                     _SM1	equ	158
+   492  0000                     _SM2	equ	157
+   493  0000                     _T0	equ	180
+   494  0000                     _T1	equ	181
+   495  0000                     _TB8	equ	155
+   496  0000                     _TF0	equ	141
+   497  0000                     _TF1	equ	143
+   498  0000                     _TI	equ	153
+   499  0000                     _TR0	equ	140
+   500  0000                     _TR1	equ	142
+   501  0000                     _TXD	equ	177
+   502  0000                     _WR	equ	182
+   503  0000                     _ACC	equ	224
+   504  0000                     _B	equ	240
+   505  0000                     _DPH	equ	131
+   506  0000                     _DPL	equ	130
+   507  0000                     _IE	equ	168
+   508  0000                     _IP	equ	184
+   509  0000                     _P0	equ	128
+   510  0000                     _P1	equ	144
+   511  0000                     _P2	equ	160
+   512  0000                     _P3	equ	176
+   513  0000                     _PCON	equ	135
+   514  0000                     _PSW	equ	208
+   515  0000                     _SBUF	equ	153
+   516  0000                     _SCON	equ	152
+   517  0000                     _SP	equ	129
+   518  0000                     _TCON	equ	136
+   519  0000                     _TH0	equ	140
+   520  0000                     _TH1	equ	141
+   521  0000                     _TL0	equ	138
+   522  0000                     _TL1	equ	139
+   523  0000                     _TMOD	equ	137
+   524  0000                     _ACC_BITS	equ	224
+   525  0000                     _B_BITS	equ	240
+   526  0000                     _IE_BITS	equ	168
+   527  0000                     _IP_BITS	equ	184
+   528  0000                     _P0_BITS	equ	128
+   529  0000                     _P1_BITS	equ	144
+   530  0000                     _P2_BITS	equ	160
+   531  0000                     _P3_BITS	equ	176
+   532  0000                     _PCON_BITS	equ	135
+   533  0000                     _PSW_BITS	equ	208
+   534  0000                     _SCON_BITS	equ	152
+   535  0000                     _TCON_BITS	equ	136
+   536  0000                     _TMOD_BITS	equ	137
+
+
+HI-TECH Software 8051 Macro Assembler V9.60                                Page 2
+Symbol Table                                           Sun Jun 16 11:18:42 2013
+
+          ?a_main 00020                 _B 000F0                 l4 00027  
+               l5 0001C                 _P 000D0                 l6 00025  
+               l7 00025                 l8 00027                 l9 00062  
+  _LCD_sendstring 000A3                _B0 000F0                _B1 000F1  
+              _B2 000F2                _B3 000F3                _B4 000F4  
+              _B5 000F5                _B6 000F6                _A8 000A0  
+              _B7 000F7                _A9 000A1                _F0 000D5  
+              _AC 000D6                l10 0007C                l11 00075  
+              l12 00071                l13 0007C                l14 0008E  
+              _EA 000AF                l15 000A0                l16 000C9  
+              l17 000BE                l18 000AB                l19 000C9  
+              _P0 00080                _P1 00090                _P2 000A0  
+              _P3 000B0                _IE 000A8                _T0 000B4  
+              _T1 000B5                _ES 000AC                _CY 000D7  
+              _IP 000B8                _RD 000B7                u10 0007C  
+              u11 0007A                _RI 00098                _TI 00099  
+              _PS 000BC                _OV 000D2                _SP 00081  
+              _WR 000B6            _B_BITS 000F0               F312 00100  
+             _A10 000A2               _A11 000A3               _A12 000A4  
+             _A13 000A5               _A14 000A6               _A15 000A7  
+             _AD0 00080               _AD1 00081               _AD2 00082  
+             _AD3 00083               _AD4 00084               _AD5 00085  
+             _AD6 00086               _AD7 00087               _ACC 000E0  
+             _P00 00080               _P01 00081               _P10 00090  
+             _P02 00082               _P11 00091               _P03 00083  
+             _P20 000A0               _P12 00092               _P04 00084  
+             _P21 000A1               _P13 00093               _P05 00085  
+             _P30 000B0               _P22 000A2               _P14 00094  
+             _P06 00086               _P31 000B1               _P23 000A3  
+             _P15 00095               _P07 00087               _P32 000B2  
+             _P24 000A4               _P16 00096               _P33 000B3  
+             _P25 000A5               _P17 00097               _P34 000B4  
+             _P26 000A6               _P35 000B5               _P27 000A7  
+             _P36 000B6               _P37 000B7               _IE0 00089  
+             _IE1 0008B               _ET0 000A9               _ET1 000AB  
+             _EX0 000A8               _EX1 000AA               _DPH 00083  
+             _DPL 00082               _IT0 00088               _IT1 0008A  
+             _RB8 0009A               _TF0 0008D               _TB8 0009B  
+             _TF1 0008F               _TH0 0008C               _TH1 0008D  
+             _SM0 0009F               _SM1 0009E               _TL0 0008A  
+             _SM2 0009D               _PT0 000B9               _TL1 0008B  
+             _PT1 000BB               _RS0 000D3               _RS1 000D4  
+             _REN 0009C               _PX0 000B8               _PX1 000BA  
+             _TR0 0008C               _TR1 0008E               _RXD 000B0  
+             _PSW 000D0               _TXD 000B1           _P0_BITS 00080  
+         _P1_BITS 00090           _P2_BITS 000A0           _P3_BITS 000B0  
+         _IE_BITS 000A8          _ACC_BITS 000E0           _IP_BITS 000B8  
+            f1410 00005              f1411 00028              f1500 00093  
+            f1412 00000              f1501 000A1              f1510 000A5  
+            f1502 00000              f1511 000CA              f1512 00000  
+            f1460 0002C              f1461 00063              f1462 00000  
+            f1480 00067              f1481 0007D              f1490 00081  
+            f1482 00000              f1491 0008F              f1492 00000  
+            _ACC0 000E0              _ACC1 000E1              _ACC2 000E2  
+            _ACC3 000E3              _ACC4 000E4              _ACC5 000E5  
+            _ACC6 000E6              _ACC7 000E7     stack_internal 00001  
+            _INT0 000B2              _INT1 000B3  ?a_LCD_sendstring 0002C  
+            _PCON 00087              _SCON 00098              _SBUF 00099  
+            _TCON 00088              _TMOD 00089              _main 00003  
+        _LCD_busy 00065          _LCD_init 0002A          _PSW_BITS 000D0  
+         ldc_byte 0010C             ldc_r5 00158         _PCON_BITS 00087  
+       _SCON_BITS 00098         _TCON_BITS 00088           str_copy 00195  
+     _LCD_command 0007F         _TMOD_BITS 00089      _LCD_senddata 00091  
+

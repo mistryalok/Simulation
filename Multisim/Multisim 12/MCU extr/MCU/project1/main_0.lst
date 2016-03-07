@@ -1,0 +1,38 @@
+
+
+HI-TECH Software 8051 Macro Assembler V9.60                                Page 1
+                                                       Wed Jun 04 09:22:08 2014
+
+     1                           	psect	idata,class=DATA,space=1,limit=080h
+     2                           	psect	irdata,class=DATA,limit=080h
+     3                           	global	_main
+     4                           	signat	_main,88
+     5                           	global	stack_internal
+     6                           	psect	text,class=CODE
+     7                           	psect	text
+     8                           	file	"D:\alok\SIMULA~1\Multisim\MULTIS~1\MCUEXT
+                                 ~1\MCU\project1\main.c"
+     9                           	line	2
+    10  0000'                    _main:
+    11  0000' 80 01              	j	f11
+    12  0002'                    f10:
+    13                           ;main.c: 1: void main()
+    14                           
+    15                           ;main.c: 2: {
+    16                           
+    17                           ;main.c: 4: }
+    18                           
+    19                           	line	4
+    20  0002'                    l1:
+    21  0002' 22                 	ret
+    22  0003'                    f11:
+    23  0003' 80 FD              	j	f10
+    24  0000                     f12	equ	0
+
+
+HI-TECH Software 8051 Macro Assembler V9.60                                Page 2
+Symbol Table                                           Wed Jun 04 09:22:08 2014
+
+            l1 00002             f10 00002             f11 00003  
+           f12 00000  stack_internal 00000*          _main 00000  
+

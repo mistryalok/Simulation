@@ -1,0 +1,60 @@
+BLINKI^1        BLINKING LIGHTS TEST                                                                          PAGE 1
+
+                       1    ;
+                       2    ; MCU Co-Sim Test Program Suite
+                       3    ; Blinking Lights
+                       4    ; Copyright 2005 Electronics Workbench Inc.
+                       5    $MOD51
+                       6    
+                       7     $TITLE(BLINKING LIGHTS TEST)
+                       8    
+                       9    ; Output connected to LED bank.
+                      10    ; OUTPORT EQU   P2
+                      11    ; move stack pointer past register banks
+                      12          
+                      13    
+0000 758000           14                    MOV P0,#00H
+0003 759000           15                    MOV P1,#00H
+0006 75A000           16                    MOV P2,#00H
+0009 75B000           17                    MOV P3,#00H                                                                 
+                                                                                                           ; SENT 00 & F
+                                                                               F TO PORT 1
+000C 7590FF           18            CONT:   MOV P1,#0FFH
+000F 7580FF           19                    MOV P0,#0FFH
+                      20                    
+0012 75A0FF           21                    MOV P2,#0FFH
+0015 75B0FF           22                    MOV P3,#0FFH
+                      23    
+0018 112A             24                    ACALL DELAY
+                      25    
+001A 758000           26                    MOV P0,#00H
+001D 759000           27                    MOV P1,#00H
+0020 75A000           28                    MOV P2,#00H
+0023 75B000           29                    MOV P3,#00H
+                      30    
+0026 112A             31                    ACALL DELAY
+0028 010C             32                    AJMP CONT
+                      33    
+                      34                    
+                      35    
+002A 7804             36    DELAY: MOV R0,#04H
+002C 79FF             37    A3:             MOV R1,#0FFH
+002E 7AFF             38    A2:             MOV R2,#0FFH
+0030 DAFE             39    A1:             DJNZ R2,A1
+0032 D9FA             40                    DJNZ R1,A2
+0034 D8F6             41                    DJNZ R0,A3
+0036 22               42                    RET
+                      43                    END
+
+VERSION 1.2k ASSEMBLY COMPLETE, 0 ERRORS FOUND
+BLINKI^1        BLINKING LIGHTS TEST                                                                          PAGE 2
+
+A1 . . . . . . . . . . . . . . .  C ADDR  0030H  
+A2 . . . . . . . . . . . . . . .  C ADDR  002EH  
+A3 . . . . . . . . . . . . . . .  C ADDR  002CH  
+CONT . . . . . . . . . . . . . .  C ADDR  000CH  
+DELAY. . . . . . . . . . . . . .  C ADDR  002AH  
+P0 . . . . . . . . . . . . . . .  D ADDR  0080H  PREDEFINED  
+P1 . . . . . . . . . . . . . . .  D ADDR  0090H  PREDEFINED  
+P2 . . . . . . . . . . . . . . .  D ADDR  00A0H  PREDEFINED  
+P3 . . . . . . . . . . . . . . .  D ADDR  00B0H  PREDEFINED  

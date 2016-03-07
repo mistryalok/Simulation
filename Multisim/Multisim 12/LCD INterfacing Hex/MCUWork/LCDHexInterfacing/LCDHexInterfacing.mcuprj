@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<MCUProject Schema="62" Class="CMCUProject" Path="" PathAbs="" ProjectType="1">
+<ProjectFolders/>
+<ProjectFiles/>
+<BuildSettings>
+<MCUProjectBuildSettings Class="CMCUProjectBuildSettings" ToolGroupType="-1" IntermediatePath="&amp;ASC.\" IntermediatePathAbs="" OutputPath="&amp;ASC.\" OutputPathAbs="" TargetFileType="6" SimPath="&amp;ASC..\..\..\..\..\..\EC\Keil\LCD Display\" SimPathAbs="&amp;ASCD:\alok\EC\Keil\LCD Display\" SimFile="&amp;ASCLCD display.hex" CodeLoadType="0"/>
+</BuildSettings>
+</MCUProject>
